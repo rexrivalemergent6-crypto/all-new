@@ -1,0 +1,115 @@
+{
+  "theme": "dark_light_toggle",
+  "default_theme": "dark",
+  "typography": {
+    "headings": "Cabinet Grotesk",
+    "body": "IBM Plex Sans",
+    "mono": "JetBrains Mono",
+    "rules": [
+      "No Inter or generic sans for headings. Rotate font arsenal.",
+      "Headings must use tight letter spacing: tracking-tight or tracking-tighter.",
+      "Overlines/labels MUST be Uppercase + Tiny + Wide Spacing (tracking-[0.2em]).",
+      "Max heading size text-5xl on desktop. Use fluid scaling."
+    ]
+  },
+  "colors": {
+    "archetype": "Swiss & High-Contrast",
+    "light": {
+      "background": "hsl(0, 0%, 98%)",
+      "foreground": "hsl(240, 5%, 10%)",
+      "primary": "hsl(220, 80%, 40%)",
+      "card": "hsl(0, 0%, 100%)",
+      "border": "hsl(240, 5%, 85%)"
+    },
+    "dark": {
+      "background": "hsl(240, 5%, 8%)",
+      "foreground": "hsl(240, 10%, 95%)",
+      "primary": "hsl(220, 80%, 60%)",
+      "card": "hsl(240, 5%, 12%)",
+      "border": "hsl(240, 5%, 20%)"
+    },
+    "forbidden_colors": ["#1B93A4", "#7351B7"],
+    "contrast_rules": [
+      "Minimum 4.5:1 contrast for normal text.",
+      "ALWAYS explicitly set text color on hover - never rely on inheritance.",
+      "DO NOT use complete transparent background in header, overlays, any surface that has content under it."
+    ]
+  },
+  "visual_enhancers": {
+    "surfaces": "Flat Solid surfaces instead of Glass to prevent visual refraction of data. Health/Research apps require optical clarity.",
+    "borders": "1px delicate inner stroke or subtle solid borders to define grid edges. Use 'Grid Borders' style for data-heavy sections.",
+    "textures": "Subtle grain overlays to kill digital flatness."
+  },
+  "grids_and_layouts": {
+    "dashboard_grid": "High Density Grid: grid-cols-1 md:grid-cols-3 lg:grid-cols-4 with gap-4 or gap-6.",
+    "spacing": "Generous Spacing Philosophy. Use p-6 or p-8 inside cards. 2-3x more spacing than default.",
+    "alignment": "Optical alignment over geometrical. Left-align dense content."
+  },
+  "components": {
+    "navigation": "Visible sidebar or top nav with solid background. Include Dark/Light theme toggle.",
+    "cards": "Flat background, 1px subtle border, no shadow by default. Hover: slight lift and shadow.",
+    "forms_and_inputs": "Use Shadcn components but strip the default Vercel look via Tailwind. Customize spacing and radii.",
+    "tables": "Dense, highly legible, left-aligned data. Use JetBrains Mono for numbers and IDs."
+  },
+  "motion_and_interactions": {
+    "rules": [
+      "Micro-animations on hover.",
+      "Staggered entrance animations for lists (e.g., live run agent steps).",
+      "NO universal transitions (transition: all). Use specific transitions (e.g. transition-colors, transition-transform)."
+    ]
+  },
+  "accessibility": {
+    "rules": [
+      "Respect prefers-reduced-motion.",
+      "Add data-testid to ALL interactive and key informational elements."
+    ]
+  },
+  "media": {
+    "icons_library": "@phosphor-icons/react",
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1719650592946-55163c4994cb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwyfHxuZXVyYWwlMjBuZXR3b3JrJTIwbWVkaWNhbCUyMGFic3RyYWN0fGVufDB8fHx8MTc5MTcxMzQxMnww&ixlib=rb-4.1.0&q=85",
+        "category": "hero_background_or_agent_visualization",
+        "description": "Interconnected nerve cells with nodes. Use for AI Master Orchestrator backgrounds or network graph empty states."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1581093577421-f561a654a353?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHxzY2llbmNlJTIwbGFib3JhdG9yeSUyMHJlc2VhcmNoZXJ8ZW58MHx8fHwxNzkxNzEzNDEyfDA&ixlib=rb-4.1.0&q=85",
+        "category": "user_profile_or_welcome",
+        "description": "Scientist in lab coat using a laptop. Use for the dashboard welcome section, onboarding, or team page."
+      }
+    ]
+  },
+  "3d_libraries": {
+    "recommendation": "Recharts for general stats, D3.js (if heavy data)",
+    "usage": "Use Recharts (via Shadcn) for Dashboard with stats and Insights library. Use standard React state for the live run view."
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: The environment uses .js and .jsx files. Write .js/.jsx, NOT .tsx files.",
+    "Install fonts: Cabinet Grotesk (headings), IBM Plex Sans (body), JetBrains Mono (data/code).",
+    "Install @phosphor-icons/react for icons. Do NOT use emojis for icons.",
+    "Implement a dark/light theme toggle, default to dark.",
+    "Master Orchestrator Live Run View: Build a staggered list layout showing agent steps (Scout, Analyst, Critic, etc.). Use Mono font for audit logs and agent outputs.",
+    "Agent Registry Page: Use a high-density bento grid.",
+    "Insights Library: Create a dense card list or table with explicitly highlighted novelty/confidence scores and citations.",
+    "Audit Trail Log Table: Use 'Grid Borders' style (border-collapse, border-r border-b on cells).",
+    "Do NOT use Space Grotesk. Do NOT use Teal Green (#1B93A4) or Purple (#7351B7).",
+    "Ensure ALL interactive elements have kebab-case data-testid attributes based on role."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use Flat Solid backgrounds instead of glassmorphism for medical data clarity.",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms.",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons. Use the specified icon library.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories = main agent will use placeholder text which is FORBIDDEN.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Use sonner for toasts, located in /app/frontend/src/components/ui/sonner.js (or .jsx)."
+  ]
+}

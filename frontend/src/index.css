@@ -1,0 +1,94 @@
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 240 5% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 5% 10%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 5% 10%;
+        --primary: 220 80% 40%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 240 5% 94%;
+        --secondary-foreground: 240 5% 10%;
+        --muted: 240 5% 94%;
+        --muted-foreground: 240 4% 40%;
+        --accent: 32 95% 44%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 72% 48%;
+        --destructive-foreground: 0 0% 98%;
+        --success: 150 60% 34%;
+        --border: 240 5% 85%;
+        --input: 240 5% 85%;
+        --ring: 220 80% 40%;
+        --chart-1: 220 80% 45%;
+        --chart-2: 32 95% 48%;
+        --radius: 0.25rem;
+    }
+    .dark {
+        --background: 240 5% 8%;
+        --foreground: 240 10% 95%;
+        --card: 240 5% 12%;
+        --card-foreground: 240 10% 95%;
+        --popover: 240 5% 12%;
+        --popover-foreground: 240 10% 95%;
+        --primary: 220 80% 60%;
+        --primary-foreground: 240 5% 8%;
+        --secondary: 240 5% 16%;
+        --secondary-foreground: 240 10% 95%;
+        --muted: 240 5% 16%;
+        --muted-foreground: 240 5% 64%;
+        --accent: 36 95% 58%;
+        --accent-foreground: 240 5% 8%;
+        --destructive: 0 70% 58%;
+        --destructive-foreground: 0 0% 98%;
+        --success: 150 55% 52%;
+        --border: 240 5% 20%;
+        --input: 240 5% 20%;
+        --ring: 220 80% 60%;
+        --chart-1: 220 80% 62%;
+        --chart-2: 36 95% 58%;
+    }
+}
+
+@layer base {
+    * { @apply border-border; }
+    body {
+        @apply bg-background text-foreground;
+        font-family: "IBM Plex Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, .font-display { font-family: "Cabinet Grotesk", sans-serif; letter-spacing: -0.02em; }
+    .font-mono, code { font-family: "JetBrains Mono", monospace; }
+    ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+}
+
+.grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.label-xs { @apply text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.45s cubic-bezier(.2,.7,.2,1) both; }
+
+@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+.pulse-dot { animation: pulse-dot 1.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+    .rise, .pulse-dot { animation: none; }
+}
+
+[data-debug-wrapper="true"] { display: contents !important; }

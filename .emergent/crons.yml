@@ -1,0 +1,8 @@
+crons:
+  - name: autonomous-tick
+    description: "Checks autonomous research schedules every 15 minutes and launches due agent runs"
+    cron: "*/15 * * * *"
+    # Cron endpoints must ack 2xx immediately; enqueue/background the actual work.
+    endpoint: "{{BASE_URL}}/api/cron/tick"
+    method: POST
+    enabled: true
